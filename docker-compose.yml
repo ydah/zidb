@@ -1,0 +1,18 @@
+services:
+  zdb:
+    build: .
+    container_name: zdb-dev
+
+    cap_add:
+      - SYS_PTRACE
+
+    security_opt:
+      - seccomp:unconfined
+
+    volumes:
+      - .:/workspace
+
+    stdin_open: true
+    tty: true
+
+    working_dir: /workspace
